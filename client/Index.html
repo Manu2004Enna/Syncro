@@ -4,9 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Manuel Ennahli">
+    <link rel="stylesheet" href="Style/Login_Register.css">
+    
     <title>Syncro</title>
 </head>
 <body>
-    
+    <div id="container">
+        <h1>Syncro</h1>
+        <div id="button_section">
+            <button id="LogInButton">Sign in</button>
+            <button id="RegisterButton">Register account</button>
+        </div>
+        <div class="input-group">
+            <label for="nickname">Nickname</label>
+            <input id="nicknameInput" name="nickname" required>
+        </div>
+
+        <!-- Campo Password -->
+        <div class="input-group">
+            <label for="password">Password</label>
+            <input type="password" id="passwordInput" placeholder = "Enter your password" required>
+        </div>
+        <button id="submitButton">Sign in</button>
+    </div>
+
+    <script src="script/Init.js"></script>
 </body>
 </html>

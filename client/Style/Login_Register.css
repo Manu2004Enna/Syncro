@@ -1,4 +1,96 @@
+*
+{
+    box-sizing: border-box; 
+}
+
 body
 {
+    background-color: rgb(110, 212, 252);
+    padding: 0;
     margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; 
+}
+
+#container
+{
+    width: 90vw;
+    height: 90vh;
+    background-color: white;
+    padding: 0;
+    margin: 0;
+    border-radius: 50px;
+    display: flex;
+    flex-direction: column;
+   
+}
+
+h1
+{
+    text-align: center;
+    font-size: 300%;
+}
+
+#button_section
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    height: 6%;
+    
+    gap: 0px;
+}
+
+#button_section > button
+{
+    border-radius: 0;
+    width: 40%;
+    border: none;
+    margin-right: 0px;
+    margin-left: 0px;
+    color: rgb(95, 94, 94);
+   
+}
+
+#LogInButton
+{
+    background-color: rgb(215, 240, 250);
+}
+
+.input-group
+{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 0 auto; /* Centra il blocco */
+    margin-top: 5%; /* Distanza tra un campo e l'altro o dai bottoni */
+}
+
+.input-group input {
+    width: 100%; /* Occupa tutto l'80% del contenitore */
+    margin-top: 3%;
+    padding: 10px 14px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+#submitButton
+{
+   width: 80%;         
+    margin: 0 auto;      
+    margin-top: auto;      
+    margin-bottom: 10%;
+    padding: 12px 0;     
+    border: none;
+    border-radius: 8px;  
+    color: white;
+    background-color: rgb(19, 98, 255);
+    font-size: 1rem;
+    order: 99;
+    
 }
