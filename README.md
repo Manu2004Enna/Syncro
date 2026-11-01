@@ -1,0 +1,2 @@
+# Syncro
+A simple app
