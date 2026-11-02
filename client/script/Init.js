@@ -2,6 +2,8 @@ const buttonRegister = document.getElementById("RegisterButton")
 const buttonLogin = document.getElementById("LogInButton")
 const buttonSubmit = document.getElementById("submitButton")
 const inputpassword = document.getElementById("passwordInput")
+const imgButtonPassword = document.getElementById("imgButtonPassword");
+
 
 let timeAddInputPassword = 0;
 
@@ -31,7 +33,7 @@ buttonRegister.addEventListener("click",()=>{
         label.setAttribute("for", "repeatPassword");
         label.textContent = "Confirm your password";
         let input = document.createElement("input");
-        input.type = "text";
+        input.type = "password";
         input.id = "confirmPassword";
 
         input.placeholder = "Confirm your password";
@@ -44,6 +46,28 @@ buttonRegister.addEventListener("click",()=>{
         inputpassword.placeholder = "Create your password"
 
     }
-
-
+})
+let hiddenpasswordInput = true
+imgButtonPassword.addEventListener("click",()=>{
+    let imgPasswordInput = document.getElementById("imgPasswordInput")
+    let passwordInput = document.getElementById("passwordInput")
+    let confirmInput = document.getElementById("confirmPassword")
+    if(hiddenpasswordInput == true){
+        imgPasswordInput.src = "img/eye-open.svg"
+        hiddenpasswordInput = false
+        passwordInput.setAttribute("type","text")
+        if(confirmInput){
+            confirmInput.setAttribute("type","text")
+        }
+        
+    }
+    else{
+        imgPasswordInput.src = "img/eye-closed.svg" 
+        passwordInput.setAttribute("type","password")
+        hiddenpasswordInput = true
+        if(confirmInput){
+            confirmInput.setAttribute("type","password")
+       }
+    }
+    
 })

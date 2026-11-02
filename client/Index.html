@@ -20,10 +20,15 @@
             <input id="nicknameInput" name="nickname" required>
         </div>
 
-        <!-- Campo Password -->
-        <div class="input-group">
+        <div class="input-group" id="container_password">
             <label for="password">Password</label>
-            <input type="password" id="passwordInput" placeholder = "Enter your password" required>
+            <!-- Avvolgi solo input e bottone in questo div -->
+        <div style="position: relative; width: 100%;">
+            <input type="password" id="passwordInput" placeholder="Enter your password" required>
+            <button type="button" class="icon_input_password" id="imgButtonPassword">
+                <img src="img/eye-closed.svg" alt="eye_password" id="imgPasswordInput">
+            </button>
+    </div>
         </div>
         <button id="submitButton">Sign in</button>
     </div>

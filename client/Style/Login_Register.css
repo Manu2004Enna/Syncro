@@ -53,12 +53,54 @@ h1
     margin-right: 0px;
     margin-left: 0px;
     color: rgb(95, 94, 94);
-   
+    
 }
 
 #LogInButton
 {
     background-color: rgb(215, 240, 250);
+    border-radius: 10px 0 0 10px !important;
+}
+
+#RegisterButton
+{
+    border-radius: 0 10px 10px 0 !important;
+}
+
+/* 1. Togliamo il margin-top dall'input della password dentro il wrapper */
+.password-wrapper input {
+    margin-top: 0 !important;
+    width: 100%;
+    padding: 10px 40px 10px 14px !important;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+
+
+#passwordInput {
+    width: 100%;
+    padding-right: 40px !important; /* Lascia lo spazio a destra per l'occhio */
+}
+
+.icon_input_password {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-25%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+.icon_input_password img {
+    width: 20px;
+    height: 20px;
 }
 
 .input-group
