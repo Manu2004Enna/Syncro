@@ -4,6 +4,7 @@ const buttonSubmit = document.getElementById("submitButton")
 const inputpassword = document.getElementById("passwordInput")
 const imgButtonPassword = document.getElementById("imgButtonPassword");
 
+let login_or_register = "login"
 
 let timeAddInputPassword = 0;
 
@@ -11,6 +12,7 @@ buttonLogin.addEventListener("click",()=>{
     buttonLogin.style.backgroundColor = "rgb(215, 240, 250)"
     buttonRegister.style.backgroundColor = "white"
     buttonSubmit.textContent = "Sign in"
+    login_or_register = "login"
     let divConfirmButton = document.getElementById("divInputConfirm")
     if(divConfirmButton){
         divConfirmButton.remove()
@@ -22,7 +24,8 @@ buttonLogin.addEventListener("click",()=>{
 buttonRegister.addEventListener("click",()=>{
     buttonLogin.style.backgroundColor = "white"
     buttonRegister.style.backgroundColor = "rgb(215, 240, 250)"
-    buttonSubmit.textContent = "Create account  "
+    buttonSubmit.textContent = "Create account"
+    login_or_register = "register"
 
     if(timeAddInputPassword < 1)
     {
@@ -69,5 +72,17 @@ imgButtonPassword.addEventListener("click",()=>{
             confirmInput.setAttribute("type","password")
        }
     }
+    
+})
+
+buttonSubmit.addEventListener("click",()=>{
+    if(login_or_register = "register"){
+        if(document.getElementById("confirmPassword").value != document.getElementById("passwordInput").value){
+            alert("Le password devono coincidere")
+        }
+        document.getElementById("confirmPassword").value = ""
+    }
+    document.getElementById("nicknameInput").value = ""
+    inputpassword.value = ""
     
 })
