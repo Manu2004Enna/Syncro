@@ -1,2 +1,2 @@
 # Syncro
-A simple app
+In fase di sviluppo un applicazione di messaggistica
