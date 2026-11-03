@@ -4,6 +4,8 @@ const buttonSubmit = document.getElementById("submitButton")
 const inputpassword = document.getElementById("passwordInput")
 const imgButtonPassword = document.getElementById("imgButtonPassword");
 
+const maxInputPasswordLength = 16
+
 let login_or_register = "login"
 
 let timeAddInputPassword = 0;
@@ -84,5 +86,11 @@ buttonSubmit.addEventListener("click",()=>{
     }
     document.getElementById("nicknameInput").value = ""
     inputpassword.value = ""
-    
+
+})
+
+inputpassword.addEventListener("keyup",()=>{
+    if(inputpassword.value.length > maxInputPasswordLength){
+        alert("Massima lunghezza della password: " + maxInputPasswordLength)
+    }
 })
