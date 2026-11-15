@@ -78,15 +78,18 @@ imgButtonPassword.addEventListener("click",()=>{
 })
 
 buttonSubmit.addEventListener("click",()=>{
-    if(login_or_register = "register"){
+    let nickName = document.getElementById("nicknameInput")
+    if(login_or_register == "register"){
+        alert(document.getElementById("confirmPassword").value + "  and  " + document.getElementById("passwordInput").value)
         if(document.getElementById("confirmPassword").value != document.getElementById("passwordInput").value){
             alert("Le password devono coincidere")
         }
-        document.getElementById("confirmPassword").value = ""
+        register(nickName.value,inputpassword.value)
     }
-    document.getElementById("nicknameInput").value = ""
-    inputpassword.value = ""
-
+    else{
+        login(nickName.value,inputpassword.value)
+    }
+    
 })
 
 inputpassword.addEventListener("keyup",()=>{
@@ -94,3 +97,52 @@ inputpassword.addEventListener("keyup",()=>{
         alert("Massima lunghezza della password: " + maxInputPasswordLength)
     }
 })
+
+
+async function login(nick,pass) {
+    try{
+        const risposta = await fetch('http://localhost:3000/login',{
+            method : 'post',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body : 
+                JSON.stringify({nickname: nick, password: pass})
+        })
+
+        if(risposta.status == 200){
+            alert("fatto")
+        }
+        else
+        {
+            alert("non fatto")
+        }
+    }
+    catch(error){
+        console.log("errore: " + err)
+    }
+}
+
+async function register(nick,pass) {
+    try{
+        const risposta = await fetch('http://localhost:3000/register',{
+            method : 'post',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body : 
+                JSON.stringify({nickname: nick, password: pass})
+        })
+
+        if(risposta.status == 409){
+            alert("Il nickname è già registrato")
+        }
+        else
+        {
+            alert("registrato")
+        }
+    }
+    catch(error){
+        console.log("errore: " + err)
+    }
+}
