@@ -27,6 +27,8 @@ app.post('/register',async (req,res)=>{
     else{
         await pool.query("INSERT INTO user(nickname,passKey) VALUES(?,?)",[nickname,password])
         res.status(201).json({messaggio: "registrazione effettuata con successo"})
+        console.log("Registrazione: " + nickname)
+
     }
 })
 app.post('/login',async (req,res)=>{
@@ -35,6 +37,7 @@ app.post('/login',async (req,res)=>{
     const [ris] = await pool.query("SELECT nickname FROM user WHERE nickname = ? AND passKey = ?", [nickname,password])
     if(ris.length > 0){
         res.status(200).json({messaggio: "Login effettuato con successo"})
+        console.log("Login: " + nickname)
     }
     else
     {
