@@ -80,11 +80,12 @@ imgButtonPassword.addEventListener("click",()=>{
 buttonSubmit.addEventListener("click",()=>{
     let nickName = document.getElementById("nicknameInput")
     if(login_or_register == "register"){
-        alert(document.getElementById("confirmPassword").value + "  and  " + document.getElementById("passwordInput").value)
         if(document.getElementById("confirmPassword").value != document.getElementById("passwordInput").value){
             alert("Le password devono coincidere")
         }
-        register(nickName.value,inputpassword.value)
+        else{
+            register(nickName.value,inputpassword.value)
+        }
     }
     else{
         login(nickName.value,inputpassword.value)
@@ -111,11 +112,11 @@ async function login(nick,pass) {
         })
 
         if(risposta.status == 200){
-            alert("fatto")
+            window.location.replace("Chat.html")
         }
         else
         {
-            alert("non fatto")
+            alert("Login non effettuato")
         }
     }
     catch(error){
@@ -133,13 +134,11 @@ async function register(nick,pass) {
             body : 
                 JSON.stringify({nickname: nick, password: pass})
         })
-
         if(risposta.status == 409){
             alert("Il nickname è già registrato")
         }
-        else
-        {
-            alert("registrato")
+        else{
+            window.location.replace("Chat.html")
         }
     }
     catch(error){
