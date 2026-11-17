@@ -1,11 +1,11 @@
 const bottomContainerBotton = document.getElementById("bottomContainerBotton")
 const buttonBottom = bottomContainerBotton.querySelectorAll("button");
 
-buttonBottom.forEach((bottone,index) => {
-    
+const inputResearch = document.getElementById("inputResearch")
+
+buttonBottom.forEach((bottone,index) => {  
     bottone.addEventListener("click", () => {
         // Rimuove la classe da tutti i bottoni del gruppo
-        
         buttonBottom.forEach((bnt) => {
             bnt.classList.remove("selectedButton");
         });
@@ -27,4 +27,29 @@ buttonBottom.forEach((bottone,index) => {
         bottone.classList.add("selectedButton")
     })
 })
+
+inputResearch.addEventListener("keyup",()=>{
+    if(inputResearch.value){
+        searchPeople(inputResearch.value)
+    }
+})
+
+async function searchPeople(nick) {
+    try{
+        const risposta = await fetch('http://localhost:3000/users/' + nick,{
+            method : 'get',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+        })
+        const data = await risposta.json()
+        for(let i = 0; i < data.length; i++){
+            console.log(data[i]["nickName"])
+        }
+        
+    }
+    catch(error){
+        console.log("errore: " + err)
+    }
+}
 
